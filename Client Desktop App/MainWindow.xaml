@@ -1,0 +1,15 @@
+﻿<Window x:Class="Client_Desktop_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client_Desktop_App"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="JobBox" HorizontalAlignment="Left" Height="26" Margin="322,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="236,153,0,0" TextWrapping="Wrap" Text="Job" VerticalAlignment="Top" Width="66" RenderTransformOrigin="0.645,-0.155"/>
+        <Button x:Name="AddJobButton" Content="Add Job" HorizontalAlignment="Center" Height="26" Margin="0,233,0,0" VerticalAlignment="Top" Width="60" Click="Button_Click"/>
+    </Grid>
+</Window>
