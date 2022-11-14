@@ -163,6 +163,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\clientsTables1Controller.cs" />
     <Compile Include="Controllers\clientsTablesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\jobsTablesController.cs" />
@@ -185,8 +186,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClientModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClientsModel2.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClientsModel2.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClientsModel2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClientsModel2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClientsModel2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClientsModel2.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\clientsTable.cs">
-      <DependentUpon>ClientModel.tt</DependentUpon>
+      <DependentUpon>ClientsModel2.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ClientStruct.cs" />
     <Compile Include="Models\JobModel.Context.cs">
@@ -232,6 +248,16 @@
       <DependentUpon>ClientModel.edmx</DependentUpon>
       <LastGenOutput>ClientModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\ClientsModel2.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ClientsModel2.edmx</DependentUpon>
+      <LastGenOutput>ClientsModel2.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ClientsModel2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ClientsModel2.edmx</DependentUpon>
+      <LastGenOutput>ClientsModel2.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\JobModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>JobModel.edmx</DependentUpon>
@@ -276,6 +302,13 @@
     </EntityDeploy>
     <Content Include="Models\JobModel.edmx.diagram">
       <DependentUpon>JobModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\ClientsModel2.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ClientsModel2.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ClientsModel2.edmx.diagram">
+      <DependentUpon>ClientsModel2.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

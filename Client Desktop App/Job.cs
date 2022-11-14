@@ -21,7 +21,7 @@ namespace Client_Desktop_App
 
         public void Connect(ClientClass client)
         {
-            Console.WriteLine($"{client.ip} just connected");
+            Console.WriteLine($"{client.ip} : {client.port} just connected");
             callback = new JobCallBack();
             clients.Add(client);
         }
@@ -47,16 +47,20 @@ namespace Client_Desktop_App
             callback.RemoveJob(job);
             Console.WriteLine("Job Removed");
         }
-        public string GetJobResult(JobClass job)
+        public string GetJobResult(string result)
         {
-            return "success";
+            if(result == "executed")
+            {
+                return "success";
+            }
+            return "unsuccess";
         }
 
         public void Disconnect(ClientClass client)
         {
            
             clients.Remove(client);
-            Console.WriteLine($"{client.ip} just disconnected");
+            Console.WriteLine($"{client.ip} : {client.port} just disconnected");
         }
     }
 }

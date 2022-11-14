@@ -7,9 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="JobBox" HorizontalAlignment="Left" Height="26" Margin="322,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="JobBox" HorizontalAlignment="Left" Height="26" Margin="153,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
 
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="236,153,0,0" TextWrapping="Wrap" Text="Job" VerticalAlignment="Top" Width="66" RenderTransformOrigin="0.645,-0.155"/>
-        <Button x:Name="AddJobButton" Content="Add Job" HorizontalAlignment="Center" Height="26" Margin="0,233,0,0" VerticalAlignment="Top" Width="60" Click="Button_Click"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="53,90,0,0" TextWrapping="Wrap" Text="Job" VerticalAlignment="Top" Width="66" RenderTransformOrigin="0.645,-0.155"/>
+        <Button x:Name="AddJobButton" Content="Add Job" HorizontalAlignment="Left" Height="26" Margin="434,90,0,0" VerticalAlignment="Top" Width="60" Click="Button_Click"/>
+
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="53,222,0,0" TextWrapping="Wrap" Text="Current Job" VerticalAlignment="Top" Width="66" RenderTransformOrigin="0.645,-0.155"/>
+        <TextBlock x:Name="CurrentJob" HorizontalAlignment="Left" Height="36" Margin="175,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" RenderTransformOrigin="0.645,-0.155"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="496,222,0,0" TextWrapping="Wrap" Text="Jobs Completed" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.645,-0.155"/>
+        <TextBlock x:Name="JobsCompleted" HorizontalAlignment="Left" Height="24" Margin="600,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117" RenderTransformOrigin="0.645,-0.155"/>
+        <TextBlock x:Name="PortNum" HorizontalAlignment="Left" Height="24" Margin="634,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117" RenderTransformOrigin="0.645,-0.155"/>
+
+        <Button x:Name="ExecuteJobButton" Content="Execute Jobs" HorizontalAlignment="Left" Height="26" Margin="275,294,0,0" VerticalAlignment="Top" Width="78" Click="ExButton_Click"/>
+        <Button x:Name="JobUpdateButton" Content="Update Jobs" HorizontalAlignment="Left" Height="26" Margin="416,294,0,0" VerticalAlignment="Top" Width="78" Click="Update_Click"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="515,57,0,0" TextWrapping="Wrap" Text="PORT :" VerticalAlignment="Top" Width="66" RenderTransformOrigin="0.645,-0.155"/>
+
     </Grid>
 </Window>

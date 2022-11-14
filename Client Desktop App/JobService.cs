@@ -24,7 +24,7 @@ namespace Client_Desktop_App
         void RemoveJob(JobClass job);
 
         [OperationContract]
-        string GetJobResult(JobClass job);
+        string GetJobResult(string result);
 
         [OperationContract]
         ObservableCollection<ClientClass> GetConnnectedClients();

@@ -1,8 +1,96 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
 }
+<div style="background-color:lightslategrey;height:900px">
+    <div style="border: 2px solid black">
+        <h2>Peer-To-Peer Web Application</h2>
+        <button onclick="clients()" style="">View Connected clients</button>
+        <button onclick="jobs()" style=""> View Completed jobs</button>
+    </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div style="">
+        <div style="solid black 2px">
+            <h2>Connected Clients</h2>
+
+
+            <table id="myTable" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">IP</th>
+                        <th scope="col">Port</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+        </div>
+        <div style="solid black 2px">
+            <h2>Jobs</h2>
+
+            <table id="myTable2" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">JobName</th>
+                        <th scope="col">JobStatus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+     
 </div>
+<script>
+    setInterval(clients,60000);
+    setInterval(jobs, 60000);
+    function clients() {
+        $.ajax({
+            type: 'Get',
+            url: '/home/Clients/',
+            contentType: 'application/json',
+            success: function (data, textStatus, jQxhr) {
+                alert("Data loaded succesfully!");
+                var dList = "";
+                for (i = 0; i < data.length; i++) {
+                    //dList += "<li>" + data[i].ip + ":" + data[i].port + "</li>";
+                    $("#myTable > tbody").append('<tr><td class="nr" scope="row">'+ data[i].ip +'</td><td>'+ data[i].port +'</td>'+ '</tr>');
+                    //$("#dList").html(dList);
+                }
+            },
+            error: function (xhr, textStatus, error) {
+                alert("Error");
+                console.log(xhr.statusText);
+                console.log(textStatus);
+                console.log(error);
+            }
+        });
+    }
+
+    function jobs() {
+        $.ajax({
+            type: 'Get',
+            url: '/home/Jobs/',
+            contentType: 'application/json',
+            success: function (data, textStatus, jQxhr) {
+                alert("Data loaded succesfully!");
+                var dList = "";
+                for (i = 0; i < data.length; i++) {
+                    //dList += "<li>" + data[i].jobName+ data[i].jobStatus + "</li>";
+                    $("#myTable2 > tbody").append('<tr><td class="nr" scope="row">'+ data[i].jobName +'</td><td>'+ data[i].jobStatus +'</td>'+ '</tr>');
+                    //$("#jobs").html(dList);
+                }
+            },
+            error: function (xhr, textStatus, error) {
+                alert("Error");
+                console.log(xhr.statusText);
+                console.log(textStatus);
+                console.log(error);
+            }
+        });
+    }
+</script>

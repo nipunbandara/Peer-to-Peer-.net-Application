@@ -1,32 +1,41 @@
 ﻿using DynamicWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using RestSharp;
 using System.Diagnostics;
+using The_Web_Server.Models;
 
 namespace DynamicWebApp.Controllers
 {
     public class HomeController : Controller
-    {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
+    { 
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult Clients()
         {
-            return View();
+            string URL = "https://localhost:44381/";
+            RestClient client = new RestClient(URL);
+            RestRequest request = new RestRequest("api/clientsTables", Method.Get);
+            RestResponse response = client.Execute(request);
+            List<clientsTable> clients = JsonConvert.DeserializeObject<List<clientsTable>>(response.Content);
+            
+            return Ok(clients);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpGet]
+        public IActionResult Jobs()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            string URL = "https://localhost:44381/";
+            RestClient client = new RestClient(URL);
+            RestRequest request = new RestRequest("api/jobsTables", Method.Get);
+            RestResponse response = client.Execute(request);
+            List<jobsTable> jobs = JsonConvert.DeserializeObject<List<jobsTable>>(response.Content);
+
+            return Ok(jobs);
         }
     }
 }
